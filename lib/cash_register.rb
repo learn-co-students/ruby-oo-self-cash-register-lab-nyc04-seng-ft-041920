@@ -11,7 +11,7 @@ class CashRegister
         self.total += price * quantity
         @items.fill(title, items.size, quantity)
 
-        @last_transaction = {:title => title, :price => price, :quantity => quantity}
+        self.last_transaction = {:title => title, :price => price, :quantity => quantity}
     end
 
     def apply_discount
@@ -25,7 +25,7 @@ class CashRegister
     end
 
    def void_last_transaction
-        self.total -= @last_transaction[:price] * last_transaction[:quantity]
+        self.total -= self.last_transaction[:price] * self.last_transaction[:quantity]
    end
 
 end
