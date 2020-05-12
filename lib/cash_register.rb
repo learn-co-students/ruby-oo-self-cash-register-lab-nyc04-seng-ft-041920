@@ -1,7 +1,7 @@
 require ('pry')
 
 class CashRegister
-    attr_accessor :total, :discount, :title, :item_list, :previous_item
+    attr_accessor :total, :discount, :title, :item_list, :last_item
     
 
     # Sets default values
@@ -19,7 +19,7 @@ class CashRegister
         else
             self.item_list.concat([title] * quantity)
         end
-        self.previous_item = price * quantity
+        self.last_item = price * quantity
     end
 
     # Apply Discount
@@ -38,7 +38,7 @@ class CashRegister
     end
 
     def void_last_transaction
-        self.total -= self.previous_item
+        self.total -= self.last_item
     end
 
 end
