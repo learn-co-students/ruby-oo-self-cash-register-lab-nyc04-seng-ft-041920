@@ -1,4 +1,5 @@
-#5/14/2020 - 5/15/2020 7:00am - 8:39pm
+#5/14/2020 thurs - 5/15/2020 fri 7:00am - 8:39pm
+#5/16/2020 sat 10:30am
 
 require 'pry'
 class CashRegister
@@ -60,7 +61,12 @@ class CashRegister
         if self.discount == 0
             "There is no discount to apply."
         else
-            self.total = (total * ((100.0 - self.discount.to_f)/100)).to_i
+              #option 1 total = total - (100 * 0.2)
+              #self.total = self.total - (100 * (self.discount/100.0).to_f).to_i
+            
+              #option 2 total = total * (100 - 20)/100
+              self.total = (self.total * ((100.0 - self.discount.to_f)/100)).to_i
+
          "After the discount, the total comes to $#{self.total}."
          end
     end
